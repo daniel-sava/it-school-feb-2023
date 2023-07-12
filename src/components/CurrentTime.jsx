@@ -5,12 +5,10 @@ export default function CurrentTime() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            console.log("set interval");
             setTime(new Date());
         }, 1000);
 
         return () => {
-            console.log("unmount");
             clearInterval(interval);
         };
     }, []);

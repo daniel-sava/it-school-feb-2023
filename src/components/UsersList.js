@@ -1,3 +1,5 @@
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Container, Table } from "react-bootstrap";
 
 export default function UsersList({ users }) {
@@ -10,6 +12,7 @@ export default function UsersList({ users }) {
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Actiuni</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,6 +22,12 @@ export default function UsersList({ users }) {
                                 <td>{index + 1}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
+                                <td>
+                                    <FontAwesomeIcon
+                                        style={{ color: "red" }}
+                                        icon={faTrash}
+                                    ></FontAwesomeIcon>
+                                </td>
                             </tr>
                         );
                     })}

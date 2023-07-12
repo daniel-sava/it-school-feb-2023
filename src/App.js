@@ -4,6 +4,7 @@ import "./App.css";
 import CurrentTime from "./components/CurrentTime";
 import Section from "./components/Section";
 import UsersList from "./components/UsersList";
+import WindowSize from "./components/WindowSize";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -18,7 +19,7 @@ function App() {
     }, []);
 
     function onEnroll(email, name) {
-        alert(`Multumim ${name} ca te-ai inregistrat cu emailul ${email}.`);
+        setUsers((prevState) => [...prevState, { name, email }]);
     }
 
     function updateCount() {
@@ -27,11 +28,16 @@ function App() {
 
     return (
         <div className="App">
-            {count % 2 !== 0 && (
-                <Container className="mt-4">
-                    <CurrentTime />
-                </Container>
-            )}
+            <Container className="mt-4">
+                {count % 2 !== 0 && (
+                    <div>
+                        {" "}
+                        <WindowSize />
+                        <CurrentTime />
+                    </div>
+                )}
+            </Container>
+
             <Section title="Sesiunea 32" onEnroll={onEnroll}>
                 <p className="paragraph">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
