@@ -1,0 +1,10 @@
+.App .products-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.App .product-title {
+    color: red;
+    text-transform: uppercase;
+}

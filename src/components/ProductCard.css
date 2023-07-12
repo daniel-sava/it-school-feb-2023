@@ -1,0 +1,41 @@
+.ProductCard {
+    max-width: 320px;
+    padding: 2rem 1.5rem;
+    border-radius: 0.25rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.ProductCard .product-image {
+    max-width: 100%;
+}
+
+.ProductCard .product-title {
+    color: blue;
+}
+
+.ProductCard .product-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ProductCard .product-quantity {
+    text-transform: uppercase;
+    padding: 6px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.ProductCard .product-quantity.green {
+    background-color: green;
+}
+
+.ProductCard .product-quantity.red {
+    background-color: red;
+}
+
+.ProductCard input[type="email"] {
+    padding: 8px 16px;
+}
