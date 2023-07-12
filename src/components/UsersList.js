@@ -2,7 +2,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Container, Table } from "react-bootstrap";
 
-export default function UsersList({ users }) {
+export default function UsersList({ users, handleDelete }) {
     return (
         <Container>
             <h2>Utilizatori inregistrati</h2>
@@ -24,6 +24,9 @@ export default function UsersList({ users }) {
                                 <td>{user.email}</td>
                                 <td>
                                     <FontAwesomeIcon
+                                        onClick={() => {
+                                            handleDelete(index);
+                                        }}
                                         style={{ color: "red" }}
                                         icon={faTrash}
                                     ></FontAwesomeIcon>

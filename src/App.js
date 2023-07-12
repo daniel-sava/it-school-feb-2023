@@ -22,6 +22,14 @@ function App() {
         setUsers((prevState) => [...prevState, { name, email }]);
     }
 
+    function onDelete(index) {
+        setUsers((prevUsers) => {
+            users.splice(index, 1);
+
+            return [...users];
+        });
+    }
+
     function updateCount() {
         setCount(count + 1);
     }
@@ -51,7 +59,7 @@ function App() {
                 </p>
             </Section>
 
-            <UsersList users={users} />
+            <UsersList users={users} handleDelete={onDelete} />
 
             <Container>
                 <p>Counter curent: {count}</p>
