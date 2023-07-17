@@ -1,7 +1,8 @@
 import Container from "@mui/material/Container";
 import ShoppingList from "../components/ShoppingList";
 
-import { useState } from "react";
+import { Button } from "@mui/material";
+import { useCallback, useState } from "react";
 
 const shoppingListItems = [
     {
@@ -23,11 +24,30 @@ const shoppingListItems = [
 ];
 
 export default function Shopping() {
+    const [count, setCount] = useState(0);
     const [items, setItems] = useState(shoppingListItems);
+
+    const addItem = useCallback(
+        (newItem) => {
+            setItems((prevItems) => [
+                ...prevItems,
+                { id: prevItems.length + 1, name: newItem },
+            ]);
+        },
+        [items]
+    );
 
     return (
         <Container>
-            <ShoppingList items={items} />
+            <Button
+                onClick={() => {
+                    setCount((prevCount) => prevCount + 1);
+                }}
+                variant="outlined"
+            >
+                Increment counter {count}
+            </Button>
+            <ShoppingList items={items} addItem={addItem} />
         </Container>
     );
 }
