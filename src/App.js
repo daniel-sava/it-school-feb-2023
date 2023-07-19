@@ -1,8 +1,7 @@
 import { useRef, useState } from "react";
-import BouncingBall from "./BouncingBall";
-import InfoBanner from "./InfoBanner";
 
 import styles from "./App.module.css";
+import Counter from "./Counter";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -10,6 +9,7 @@ function App() {
 
     return (
         <div className={styles.App}>
+            <Counter />
             {/* <button
                 onClick={() => {
                     counter.current++;
@@ -27,8 +27,8 @@ function App() {
                 Counter with useState {count}
             </button> */}
 
-            <InfoBanner />
-            <BouncingBall />
+            {/* <InfoBanner />
+            <BouncingBall /> */}
         </div>
     );
 }
