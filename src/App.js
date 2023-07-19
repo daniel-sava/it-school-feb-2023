@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
 import styles from "./App.module.css";
-import Counter from "./Counter";
+import Tasks from "./Tasks";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -9,7 +9,8 @@ function App() {
 
     return (
         <div className={styles.App}>
-            <Counter />
+            <Tasks />
+            {/* <Counter /> */}
             {/* <button
                 onClick={() => {
                     counter.current++;
