@@ -1,0 +1,42 @@
+.navbar {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar.light {
+    background-color: white;
+    color: black;
+}
+
+.navbar.dark {
+    background-color: black;
+    color: white;
+}
+
+.logo {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.user-name {
+    color: #2d81ef;
+}
+
+.auth-button {
+    border: none;
+    background-color: #2d81ef;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.auth-button:hover {
+    cursor: pointer;
+}
+
+.current-user{
+    display: flex;
+    gap: 1rem;
+}

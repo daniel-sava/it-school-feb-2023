@@ -1,0 +1,8 @@
+.random {
+    color: var(--text-color);
+}
+
+.random button {
+    color: var(--button-color);
+    background-color: var(--button-background-color);
+}

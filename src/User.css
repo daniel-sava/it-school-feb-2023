@@ -1,0 +1,13 @@
+.change-username {
+    padding: 2rem;
+}
+
+.change-username.light {
+    background-color: white;
+    color: black;
+}
+
+.change-username.dark {
+    background-color: black;
+    color: white;
+}
