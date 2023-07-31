@@ -42,13 +42,16 @@ function reducer(state, action) {
     console.log(state, action);
     switch (action.type) {
         case TaskActions.Completed:
-            return state.map((task) => {
+            const updatedTasks = state.map((task) => {
                 if (task.id === action.payload.taskId) {
                     return { ...task, completed: true };
                 } else {
                     return task;
                 }
             });
+
+            updatedTasks.sort((a, b) => (a.completed ? 1 : -1));
+            return updatedTasks;
     }
 
     return state;
