@@ -1,0 +1,23 @@
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.articles .article {
+    max-width: 400px;
+}
+
+.articles .article img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.articles .article .title .link {
+    color: black;
+    text-decoration: none;
+}
+
+.articles .article .title .link:hover {
+    text-decoration: underline;
+}

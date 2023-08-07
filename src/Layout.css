@@ -1,0 +1,35 @@
+.navbar {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: #2a50ea;
+}
+
+.navbar .title .link {
+    color: white;
+    text-decoration: none;
+}
+
+.categories-navbar {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    margin-bottom: 2rem;
+}
+
+.categories-navbar .link {
+    color: white;
+    text-decoration: none;
+}
+
+.categories-navbar .link:hover {
+    font-weight: bold;
+}
+
+.search {
+    display: flex;
+    gap: 1rem;
+}
