@@ -1,10 +1,15 @@
 import { Button, Form } from "react-bootstrap";
 import { Link, Outlet } from "react-router-dom";
 
+import { useState } from "react";
 import "./Layout.css";
 import { categories } from "./data/categories";
 
 export default function Layout() {
+    const [search, setSearch] = useState("");
+
+    function searchArticle() {}
+
     return (
         <>
             <div className="navbar">
@@ -15,8 +20,18 @@ export default function Layout() {
                         </Link>
                     </h2>
                     <div className="search">
-                        <Form.Control type="text" placeholder="Cauta articol" />
-                        <Button variant="secondary">Primary</Button>
+                        <Form.Control
+                            onChange={(event) => setSearch(event.target.value)}
+                            type="text"
+                            placeholder="Cauta articol"
+                        />
+                        <Button
+                            onClick={searchArticle}
+                            disabled={!search}
+                            variant="secondary"
+                        >
+                            Cauta
+                        </Button>
                     </div>
                 </div>
             </div>
@@ -34,7 +49,7 @@ export default function Layout() {
                 })}
             </div>
             <div className="content container">
-                <Outlet />
+                <Outlet context={{ search }} />
             </div>
         </>
     );

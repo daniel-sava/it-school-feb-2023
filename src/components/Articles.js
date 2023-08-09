@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { articles } from "../data/articles";
 
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import "./Articles.css";
 
 export default function Articles({ categoryId, currentArticleId }) {
     const [articlesList, setArticlesList] = useState(articles);
+    const [searchArticlesList, setSearchArticlesList] = useState(articles);
+    const { search } = useOutletContext();
 
     useEffect(() => {
         if (categoryId) {
@@ -21,11 +23,24 @@ export default function Articles({ categoryId, currentArticleId }) {
                 });
             });
         }
-    }, [categoryId, currentArticleId]);
+
+        setSearchArticlesList(
+            articlesList.filter((article) => {
+                const searchStringIndex = article.title
+                    .toLowerCase()
+                    .search(search.toLowerCase());
+                if (searchStringIndex !== -1) {
+                    article.searchIndex = searchStringIndex;
+                }
+
+                return searchStringIndex !== -1;
+            })
+        );
+    }, [categoryId, currentArticleId, search]);
 
     return (
         <div className="articles">
-            {articlesList.map((article) => {
+            {searchArticlesList.map((article) => {
                 return (
                     <div key={article.id} className="article">
                         <img src={article.image} />
@@ -34,7 +49,20 @@ export default function Articles({ categoryId, currentArticleId }) {
                                 className="link"
                                 to={`/article/${article.id}`}
                             >
-                                {article.title}
+                                {article.title.substring(
+                                    0,
+                                    article.searchIndex
+                                )}
+                                <mark>
+                                    {article.title.substring(
+                                        article.searchIndex,
+                                        article.searchIndex + search.length
+                                    )}
+                                </mark>
+                                {article.title.substring(
+                                    article.searchIndex + search.length,
+                                    article.title.length
+                                )}
                             </Link>
                         </h3>
                         <p>{article.shortDescription}</p>
